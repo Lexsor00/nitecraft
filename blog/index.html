@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Community Blog • NiteCraft">
+    <meta name="author" content="Lexsor00">
+    <meta name="description" content="NiteCraft Blog Page">
+    <meta name="keywords" content="NiteCraft SurvivalRPG RPG Minecraft">
+    <!-- Links -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <link rel="icon" href="../assets/img/favi.png" type="imagen/png">
+    <!-- Info Página -->
+    <title>Community Blog</title>
+</head>
+<body>
+
+    <div id="loader-wrapper">
+        <div class="nite-loader">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+        </div>
+        <p>Loading Blog...</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="nav-links">
+                <a href="../" class="nav-item" data-i18n="nav_home">INICIO</a>
+                <a href="#" class="nav-item active" data-i18n="nav_blog">BLOG</a>
+                <a href="#" class="nav-item" data-i18n="nav_guides">GUÍAS</a>
+                <a href="#" class="nav-item" data-i18n="nav_store">TIENDA</a>
+            </div>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav-right">
+            <a href="https://discord.com/invite/HuPGx4atZk" class="discord-btn" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-discord"></i></a>
+            
+            <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">
+                <span id="lang-icon" class="fi fi-es"></span>
+                <span id="lang-text">ES</span>
+            </button>
+
+            <button class="play-btn" onclick="copyIP()">
+                <span id="ip-text">soon..</span>
+            </button>
+
+            <div id="toast" class="toast">¡IP copiada al portapapeles!</div>
+        </div>
+    </nav>
+
+    <main class="blog-container">
+        
+        <div class="blog-grid">
+            <a href="3d-modeling/" class="blog-card">
+                <div class="blog-image-wrapper">
+                    <img src="../assets/img/v-0-0-1.png" alt="Actualización 0.0.1" class="blog-thumbnail">
+                </div>
+                <div class="blog-card-info">
+                    <h3 data-i18n="news_item_title">0.0.1 - Modelaje 3D</h3>
+                    <p class="news-meta">
+                        <span class="tag" data-i18n="news_item_tag">Desarrollo</span> - <span data-i18n="news_item_date">11 de Mar, 2026</span>
+                    </p>
+                    <p class="blog-excerpt" data-i18n="news_item_excerpt">
+                        Hemos comenzado a desarrollar un pilar esencial para NiteCraft: todo el ecosistema de modelos 3D. Desde NPCs y Mobs hasta objetos personalizados. Estamos trabajando cuidando cada detalle para completar con éxito la primera fase de nuestro universo.
+                    </p>
+                </div>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-icon-container">
+            <img src="../assets/img/render-footer.png" alt="NiteCraft Block" class="footer-icon">
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-ip-box" onclick="copyIP()">
+                    <span class="ip">soon..</span>
+                </div>
+                
+                <div class="footer-socials">
+                    <a href="https://discord.com/invite/HuPGx4atZk" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://www.instagram.com/iadani._" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@iadani._" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-i18n="footer_copy">NiteCraft. Todos los derechos reservados.</p>
+                <p class="mojang-disclaimer" data-i18n="footer_mojang">No estamos afiliados ni respaldados de ninguna manera por Mojang, AB.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast" data-i18n="toast_copy">¡IP copiada al portapapeles!</div>
+
+    <script src="../assets/js/translate.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+/* =========================================
+    BARRA DE NAVEGACIÓN (nav.css)
+   ========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px 40px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 1000; /* Asegura que tape el resto de la web */
+    transition: background-color 0.3s ease;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-item.active, .nav-item:hover {
+    background-color: #FBB03B;
+    color: #000000;
+}
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Botones Nav Right */
+.discord-btn {
+    background-color: #6370f4;
+    color: #ffffff;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.discord-btn:hover {
+    background-color: #7985f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(99, 112, 244, 0.4);
+}
+
+.lang-btn {
+    background-color: #111111;
+    border: 1px solid #2a2a2a;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    height: 45px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    background-color: #1a1a1a;
+    border-color: #FBB03B;
+    transform: translateY(-2px);
+}
+
+#lang-icon {
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+.play-btn {
+    background-color: #FBB03B;
+    color: #000000;
+    border: none;
+    padding: 0 20px;
+    height: 45px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.play-btn:hover {
+    background-color: #FDCB6E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(251, 176, 59, 0.4);
+}
+
+/* Botón Hamburguesa Oculto por defecto */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.mobile-menu-btn:hover {
+    color: #FBB03B;
+}
+
+/* =========================================
+    RESPONSIVE NAVBAR (Móviles y Tablets)
+   ========================================= */
+
+@media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap; /* Permite que los elementos caigan a la siguiente línea */
+        padding: 15px 20px;
+    }
+
+    /* Ocultamos los enlaces y el bloque derecho en la vista por defecto */
+    .nav-links, .nav-right {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Mostramos el botón hamburguesa */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Aseguramos que el logo y el botón estén en la primera línea */
+    .nav-left {
+        width: 100%;
+        justify-content: space-between; /* Logo izquierda, botón (que caerá aquí) derecha */
+    }
+
+    /* --- ESTADO ACTIVO (Menú Abierto) --- */
+    .navbar.active {
+        background-color: #0f0f0f; /* Oscurecemos un poco el fondo al abrir */
+    }
+
+    /* Mostramos los enlaces en vertical */
+    .navbar.active .nav-links {
+        display: flex;
+        padding: 20px 0;
+        gap: 15px;
+        border-bottom: 1px solid #2a2a2a;
+        order: 3; /* Lo mandamos a la 3ª fila */
+    }
+
+    .navbar.active .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Mostramos los botones derechos en vertical */
+    .navbar.active .nav-right {
+        display: flex;
+        flex-direction: row; /* En móvil queda mejor si los botones están juntos horizontalmente */
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 25px 0 10px 0;
+        gap: 20px;
+        order: 4; /* Lo mandamos al final */
+    }
+
+    /* Hacemos el botón de jugar 100% de ancho en móvil */
+    .navbar.active .play-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* =========================================
+    PIE DE PÁGINA (FOOTER)
+   ========================================= */
+
+.site-footer {
+    max-width: 1000px;
+    margin: 80px auto 40px auto;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    background-color: #111111; /* Fondo base muy oscuro */
+    border: 1px solid #2a2a2a; /* Borde sutil */
+    /* Quitamos el overflow: hidden para que la imagen pueda sobresalir por arriba */
+}
+
+.footer-icon-container {
+    width: 200px;
+    background-color: #1a1a1a; /* Gris oscuro para el bloque izquierdo */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 12px 0 0 12px;
+    padding-bottom: 20px;
+}
+
+.footer-icon {
+    width: 140px;
+    height: auto;
+    image-rendering: pixelated;
+    /* Efecto para que sobresalga por arriba del contenedor */
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+    transform: translateY(-15px); /* Pequeño salto al pasar el ratón */
+}
+
+.footer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-top {
+    background-color: #1a1a1a; /* Tono gris oscuro superior */
+    padding: 25px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 12px 0 0;
+    border-bottom: 2px solid #222222;
+}
+
+/* El botón de la IP dentro del footer */
+.footer-ip-box {
+    display: flex;
+    align-items: center;
+    background-color: #FBB03B;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 800;
+    color: #000000;
+    overflow: hidden;
+}
+
+.footer-ip-box:hover {
+    transform: translateY(-2px);
+    background-color: #FDCB6E;
+    box-shadow: 0 5px 15px rgba(251, 176, 59, 0.3);
+}
+
+.footer-ip-box .ip {
+    padding: 10px 20px;
+}
+
+.footer-ip-box .players {
+    background-color: rgba(0,0,0,0.15); /* Cuadrito oscurecido para los jugadores */
+    padding: 10px 15px;
+    color: #8c5d0a; /* Marrón/Dorado oscuro */
+}
+
+/* Redes Sociales */
+.footer-socials {
+    display: flex;
+    gap: 18px;
+}
+
+.footer-socials a {
+    color: #777777; /* Gris apagado por defecto */
+    font-size: 22px;
+    transition: all 0.2s ease;
+}
+
+.footer-socials a:hover {
+    color: #FBB03B; /* Se iluminan en naranja al pasar el ratón */
+    transform: scale(1.1);
+}
+
+/* Parte de abajo (Copyright) */
+.footer-bottom {
+    padding: 25px 35px;
+    background-color: #111111;
+    border-radius: 0 0 12px 0;
+}
+
+.footer-bottom p {
+    color: #aaaaaa;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.footer-bottom .mojang-disclaimer {
+    color: #E44950; /* Un rojo coral sutil para el aviso de Mojang, u otro color si prefieres */
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .site-footer {
+        flex-direction: column;
+        margin: 60px 20px 40px 20px;
+    }
+    .footer-icon-container {
+        width: 100%;
+        height: 80px;
+        border-radius: 12px 12px 0 0;
+    }
+    .footer-icon {
+        width: 100px;
+    }
+    .footer-icon:hover {
+        transform: translateY(-10px);
+    }
+    .footer-top {
+        flex-direction: column;
+        gap: 25px;
+        border-radius: 0;
+    }
+    .footer-bottom {
+        text-align: center;
+        border-radius: 0 0 12px 12px;
+    }
+}

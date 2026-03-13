@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* Reseteo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000; /* Fondo negro puro */
+    overflow-x: hidden;
+}
+
+/* =========================================
+    PANTALLA DE CARGA (LOADER)
+   ========================================= */
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo profundamente oscurecido */
+    z-index: 9999; /* Asegura que esté por encima de TODO */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* El círculo de carga (inspirado en la imagen) */
+.nite-loader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+/* Estilo para cada cuadrito */
+.nite-loader div {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 2px; /* Ligeramente redondeado */
+    background-color: #FBB03B; /* Tu color naranja dorado */
+    animation: nite-loader-fade 1.2s linear infinite;
+}
+
+/* Texto de carga */
+#loader-wrapper p {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Animación de desvanecimiento (fade) */
+@keyframes nite-loader-fade {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Posicionamiento y retraso para cada cuadrito (formando el círculo) */
+.nite-loader div:nth-child(1) { top: 7px; left: 33px; animation-delay: 0s; }
+.nite-loader div:nth-child(2) { top: 11px; left: 50px; animation-delay: -1.1s; }
+.nite-loader div:nth-child(3) { top: 21px; left: 63px; animation-delay: -1.0s; }
+.nite-loader div:nth-child(4) { top: 33px; left: 66px; animation-delay: -0.9s; }
+.nite-loader div:nth-child(5) { top: 50px; left: 63px; animation-delay: -0.8s; }
+.nite-loader div:nth-child(6) { top: 60px; left: 50px; animation-delay: -0.7s; }
+.nite-loader div:nth-child(7) { top: 63px; left: 33px; animation-delay: -0.6s; }
+.nite-loader div:nth-child(8) { top: 60px; left: 21px; animation-delay: -0.5s; }
+.nite-loader div:nth-child(9) { top: 50px; left: 11px; animation-delay: -0.4s; }
+.nite-loader div:nth-child(10) { top: 33px; left: 7px; animation-delay: -0.3s; }
+.nite-loader div:nth-child(11) { top: 21px; left: 11px; animation-delay: -0.2s; }
+.nite-loader div:nth-child(12) { top: 11px; left: 21px; animation-delay: -0.1s; }
+
+
+/* Sección de la imagen (Hero) */
+.hero-section {
+    width: 100%;
+    height: 70vh; /* Ajusta la altura a lo que necesites */
+    position: relative;
+    margin-top: -20px; /* Para que suba un poco bajo el nav si es necesario */
+}
+
+/* Imagen con el degradado negro encima para difuminar los bordes */
+.hero-image {
+    width: 100%;
+    height: 100%;
+    /* Pon aquí la ruta de la imagen épica de tu server */
+    background-image: url('../img/portada.png');
+    background-size: cover;
+    background-position: center top;
+    
+    /* Esta es la magia: una máscara/sombra que difumina la imagen hacia el negro puro de arriba y abajo */
+    box-shadow: inset 0px 80px 60px -20px #000000, 
+                inset 0px -80px 60px -20px #000000,
+                inset 80px 0px 60px -20px #000000, 
+                inset -80px 0px 60px -20px #000000;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #27ae60; /* El verde exacto de tu captura */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    z-index: 1000;
+    
+    /* Configuración para la animación */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Esta clase se añadirá con JavaScript para mostrar el mensaje */
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+    SECCIÓN DE NOTICIAS
+   ========================================= */
+
+.news-section {
+    max-width: 900px; /* Limitamos el ancho para que quede como en la captura */
+    margin: 60px auto; /* Centramos y damos espacio arriba y abajo */
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+.news-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.news-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.news-header p {
+    color: #9ca3af; /* Gris sutil */
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Contenedor de la noticia destacada */
+.featured-news {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 40px;
+    text-decoration: none; /* Quitamos el subrayado feo del enlace */
+    color: #ffffff; /* Aseguramos que el texto siga blanco */
+    transition: transform 0.3s ease; /* Preparamos la animación */
+    cursor: pointer; /* Que salga la manita del ratón */
+}
+
+.news-image-container {
+    flex: 1; /* Toma la mitad del espacio */
+    max-width: 50%;
+}
+
+/* Busca esta clase y actualízala */
+.news-img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Fuerza la proporción horizontal (apaisada) */
+    object-fit: cover; /* Recorta la imagen para que encaje en el cuadro sin achicarse ni deformarse */
+    object-position: center; /* Centra el recorte para que se vea bien el monitor */
+    border-radius: 8px; /* Bordes redondeados como en la referencia */
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Una pequeña sombra opcional para darle profundidad */
+}
+
+/* Y por si acaso, asegúrate de que el contenedor siga así: */
+.news-image-container {
+    flex: 1; 
+    max-width: 45%; /* Le damos un 45% a la imagen para que el texto respire bien en el 55% restante */
+}
+
+.news-info {
+    flex: 1; /* Toma la otra mitad del espacio */
+}
+
+.featured-news:hover .news-img {
+    box-shadow: 0 8px 25px rgba(251, 176, 59, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.news-info h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.featured-news:hover .news-info h3 {
+    color: #FBB03B; 
+    transition: color 0.2s ease;
+}
+
+.news-meta {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.news-meta .tag {
+    color: #fab131; /* El mismo naranja/amarillo del botón Play */
+}
+
+.news-excerpt {
+    color: #9ca3af;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Botón inferior */
+.news-action {
+    text-align: center;
+}
+
+.btn-yellow {
+    background-color: #fab131;
+    color: #000000;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-yellow:hover {
+    background-color: #fbc55d; /* Un tono un poquito más claro al pasar el ratón */
+    transform: scale(1.05); /* Pequeño efecto de zoom */
+}
+
+/* Adaptación para móviles: si la pantalla es pequeña, se apilan */
+@media (max-width: 768px) {
+    .featured-news {
+        flex-direction: column;
+    }
+    .news-image-container {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================
+    SECCIÓN DEL EQUIPO
+   ========================================= */
+
+.team-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.team-container {
+    background-color: #efebe0; /* El color beige claro de la captura */
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    color: #000000; /* Texto oscuro para contrastar con el beige */
+}
+
+/* La línea naranja de abajo */
+.team-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    background-color: #eb5e28; /* Naranja rojizo */
+    width: 15%; /* Indica que estamos viendo al primero del equipo */
+    transition: width 0.3s ease;
+}
+
+.team-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 20px;
+}
+
+.team-info {
+    flex: 1;
+    max-width: 60%;
+}
+
+.team-info h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.team-subtitle {
+    color: #555555;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.member-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.member-name {
+    color: #E44950; /* El color rojo/coral del nombre */
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.role-badge {
+    background-color: #E44950;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 20px; /* Bordes de píldora */
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.member-desc {
+    color: #222222;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+/* Carrusel de avatares */
+.team-carousel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.carousel-arrow {
+    font-size: 18px;
+    cursor: pointer;
+    color: #000000;
+    transition: transform 0.2s;
+}
+
+.carousel-arrow:hover {
+    transform: scale(1.2);
+}
+
+.avatar-head {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.avatar-head img {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated; /* Para que los píxeles de la cara se vean nítidos */
+}
+
+.avatar-head.active {
+    transform: scale(1.2);
+    border-bottom: 3px solid #000; /* Indicador de seleccionado */
+    padding-bottom: 4px;
+}
+
+.avatar-head:not(.active):hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Render del personaje a la derecha */
+.team-image-container {
+    flex: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+    /* Para que la imagen asome por abajo si es muy grande */
+    margin-bottom: -40px; 
+}
+
+.member-render {
+    max-height: 400px;
+    width: auto;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .team-content {
+        flex-direction: column;
+    }
+    .team-info {
+        max-width: 100%;
+    }
+    .team-image-container {
+        justify-content: center;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+    .member-render {
+        max-height: 250px;
+    }
+}
+
+
+/* =========================================
+    SECCIÓN SOCIAL / DISCORD
+   ========================================= */
+
+.social-section {
+    max-width: 900px; /* Un poco más estrecho que la sección del equipo */
+    margin: 80px auto; /* Buen espacio arriba y abajo */
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+.social-container {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Separación entre imagen y texto */
+}
+
+/* Contenedor de la imagen de la mascota */
+.social-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* La imagen de la mascota con el efecto de brillo (Glow) */
+.social-pet {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    image-rendering: pixelated; /* Si es pixel art, mantenlo nítido */
+    /* Magia para el brillo exterior (ajusta los colores según tu mascota) */
+    filter: drop-shadow(0px 0px 25px rgba(88, 101, 242, 0.6)); /* Brillo azul estilo Discord */
+    /* Para darle un toque de movimiento (opcional): */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Animación de flotar (opcional, para darle vida) */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Información y textos */
+.social-info {
+    flex: 1.5; /* El texto ocupa un poco más de espacio que la imagen */
+}
+
+.social-info h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.social-desc {
+    color: #9ca3af; /* Gris claro para el texto secundario */
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* El gran botón de Discord */
+.btn-discord-large {
+    background-color: #5865F2; /* Azul oficial de Discord */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.btn-discord-large:hover {
+    background-color: #4752C4; /* Azul un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .social-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .social-pet {
+        max-width: 250px;
+    }
+}
+
+
+
+
+/* =========================================
+    PÁGINA DE BLOG (blog.html)
+   ========================================= */
+
+.blog-container {
+    max-width: 1200px; 
+    margin: 40px auto 80px auto; /* Buen espacio para que no choque con el navbar */
+    padding: 0 40px; 
+}
+
+/* Cuadrícula de tarjetas de noticias */
+.blog-grid {
+    display: grid;
+    /* auto-fill asegura que la tarjeta no se estire a lo ancho de toda la pantalla si solo hay una */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+    gap: 40px; 
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px); 
+}
+
+.blog-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    overflow: hidden;
+    border-radius: 8px; 
+    margin-bottom: 20px;
+}
+
+.blog-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-thumbnail {
+    transform: scale(1.03); 
+}
+
+.blog-card:hover .blog-card-info h3 {
+    color: #FBB03B; 
+    transition: color 0.2s ease;
+}
+
+.blog-card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-info h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.blog-excerpt {
+    color: #9ca3af;
+    font-size: 15px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 0 20px;
+        margin-top: 50px;
+    }
+    .blog-grid {
+        grid-template-columns: 1fr; 
+    }
+}

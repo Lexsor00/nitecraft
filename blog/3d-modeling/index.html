@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="3D Modeling • NiteCraft">
+    <meta name="author" content="Lexsor00">
+    <meta name="description" content="NiteCraft 3D Modeling Page">
+    <meta name="keywords" content="NiteCraft SurvivalRPG RPG Minecraft">
+    <!-- Links -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/nav.css">
+    <link rel="stylesheet" href="../../assets/css/blogs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <link rel="icon" href="../../assets/img/favi.png" type="imagen/png">
+    <!-- Info Página -->
+    <title>3D Modeling</title>
+</head>
+<body>
+
+    <div id="loader-wrapper">
+        <div class="nite-loader">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+        </div>
+        <p>Loading Article...</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="nav-links">
+                <a href="../../" class="nav-item" data-i18n="nav_home">INICIO</a>
+                <a href="../" class="nav-item active" data-i18n="nav_blog">BLOG</a>
+                <a href="#" class="nav-item" data-i18n="nav_guides">GUÍAS</a>
+                <a href="#" class="nav-item" data-i18n="nav_store">TIENDA</a>
+            </div>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav-right">
+            <a href="https://discord.com/invite/HuPGx4atZk" class="discord-btn" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-discord"></i></a>
+            
+            <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">
+                <span id="lang-icon" class="fi fi-es"></span>
+                <span id="lang-text">ES</span>
+            </button>
+
+            <button class="play-btn" onclick="copyIP()">
+                <span id="ip-text">soon..</span>
+            </button>
+
+            <div id="toast" class="toast">¡IP copiada al portapapeles!</div>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        
+        <div class="article-hero">
+            <img src="../../assets/img/v-0-0-1.png" alt="0.0.1 Modelaje 3D">
+        </div>
+
+        <header class="article-header">
+            <h1 data-i18n="news_item_title">0.0.1 - Modelaje 3D</h1>
+            <div class="article-meta">
+                <span class="tag" data-i18n="news_item_tag">Desarrollo</span>
+                <span class="separator">—</span>
+                <span data-i18n="news_item_date">11 de Mar, 2026</span>
+            </div>
+        </header>
+
+        <div class="article-layout">
+            
+            <aside class="article-sidebar">
+                <nav class="toc">
+                    <ul>
+                        <li><a href="#section-who" class="toc-link active" data-i18n="article_toc_1">¿Quiénes somos?</a></li>
+                        <li><a href="#section-models" class="toc-link" data-i18n="article_toc_2">El mundo 3D</a></li>
+                        <li><a href="#section-plan" class="toc-link" data-i18n="article_toc_3">Siguientes pasos</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <article class="article-content">
+                
+                <section id="section-who" class="article-section">
+                    <h2 data-i18n="article_h2_1">¿Quiénes somos?</h2>
+                    <p data-i18n="article_p1">¡Hola a todos! Hoy os traemos el primer vistazo oficial al desarrollo interno de NiteCraft. Llevamos semanas trabajando en las sombras para sentar las bases de lo que será una experiencia única, y todo empieza con el ecosistema visual.</p>
+                </section>
+                
+                <section id="section-models" class="article-section">
+                    <h2 data-i18n="article_h2_2">El mundo 3D</h2>
+                    <p data-i18n="article_p2">Hemos comenzado a desarrollar un pilar esencial para NiteCraft: todo el ecosistema de modelos 3D. Desde NPCs y Mobs hasta objetos personalizados. Estamos trabajando cuidando cada detalle para completar con éxito la primera fase de nuestro universo. ¡Queremos que cada ítem que tengas en la mano se sienta especial!</p>
+                    
+                    <figure class="article-image">
+                        <img src="../../assets/img/blog/3d-modeling/modeloprincipal.png" alt="Desarrollo 3D Nitecraft">
+                        <figcaption data-i18n="article_img_cap_1">Prototipo del personaje principal de NiteCraft.</figcaption>
+                    </figure>
+    
+                    <p data-i18n="article_p3">Muy pronto revelaremos más detalles sobre las animaciones y cómo estos modelos interactuarán con el mundo. ¡Uníos al Discord para no perderos los spoilers exclusivos!</p>
+
+                    <figure class="article-image">
+                        <img src="../../assets/img/blog/3d-modeling/modeloprincipal-terminado.png" alt="Desarrollo 3D Nitecraft">
+                        <figcaption data-i18n="article_img_cap_2">Personaje principal de NiteCraft.</figcaption>
+                    </figure>
+                </section>
+                
+                <section id="section-plan" class="article-section">
+                    <h2 data-i18n="article_h2_3">Siguientes pasos</h2>
+                    <p data-i18n="article_p4">Nuestra hoja de ruta está clara. Primero, modelos. Segundo, texturas. Y finalmente, mecánicas custom. Mantente atento a futuras actualizaciones, porque lo que se viene es espectacular.</p>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer" style="margin-top: 80px;">
+        <div class="footer-icon-container">
+            <img src="../../assets/img/render-footer.png" alt="NiteCraft Block" class="footer-icon">
+        </div>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-ip-box" onclick="copyIP()">
+                    <span class="ip">soon..</span>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://discord.com/invite/HuPGx4atZk" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://www.instagram.com/iadani._" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@iadani._" target="_blank" rel="noopener noreferrer nofollow"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_copy">NiteCraft. Todos los derechos reservados.</p>
+                <p class="mojang-disclaimer" data-i18n="footer_mojang">No estamos afiliados ni respaldados de ninguna manera por Mojang, AB.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast" data-i18n="toast_copy">¡IP copiada al portapapeles!</div>
+
+    <script src="../../assets/js/translate.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

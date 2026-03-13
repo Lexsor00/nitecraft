@@ -91,4 +91,113 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+});
+
+
+// =========================================
+// CARRUSEL DEL EQUIPO
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Base de datos del equipo (¡Ahora con colores!)
+    const teamMembers = [
+        {
+            name: "Lexsor00",
+            roleKey: "team_role_lexsor", 
+            descKey: "team_desc_lexsor", 
+            render: "assets/img/render-lexsor00.png",
+            colorClass: "color-red"
+        },
+        {
+            name: "Arnauetcacawet",
+            roleKey: "team_role_arnau",
+            descKey: "team_desc_arnau",
+            render: "assets/img/render-arnau.png",
+            colorClass: "color-orange" 
+        }
+    ];
+
+    let currentTeamIndex = 0;
+    let teamInterval;
+
+    const btnNext = document.getElementById('next-member');
+    const btnPrev = document.getElementById('prev-member');
+    const avatars = document.querySelectorAll('.avatar-head');
+    const progressBar = document.getElementById('team-progress');
+
+    if (btnNext && btnPrev) {
+        
+        function updateTeamMember(index) {
+            const member = teamMembers[index];
+            const renderImg = document.getElementById('member-render');
+            const nameElem = document.getElementById('member-name');
+            const roleElem = document.getElementById('member-role');
+            
+            // Efecto fade-out en la imagen
+            renderImg.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Cambiar textos
+                nameElem.textContent = member.name;
+                roleElem.setAttribute('data-i18n', member.roleKey);
+                document.getElementById('member-desc').setAttribute('data-i18n', member.descKey);
+                
+                // === NUEVO: Cambiar el color del rango ===
+                nameElem.className = 'member-name ' + member.colorClass;
+                roleElem.className = 'role-badge ' + member.colorClass;
+                
+                // Cambiar imagen
+                renderImg.src = member.render;
+                renderImg.alt = member.name + " Render";
+                renderImg.style.opacity = 1;
+
+                if (typeof applyTranslations === 'function') {
+                    applyTranslations();
+                }
+            }, 300);
+
+            // Actualizar cabecitas
+            avatars.forEach((avatar, i) => {
+                if (i === index) avatar.classList.add('active');
+                else avatar.classList.remove('active');
+            });
+
+            // Reiniciar la animación de la barra
+            progressBar.style.animation = 'none';
+            progressBar.offsetHeight; 
+            progressBar.style.animation = 'progress-anim 10s linear forwards';
+        }
+
+        function nextMember() {
+            currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
+            updateTeamMember(currentTeamIndex);
+            resetInterval();
+        }
+
+        function prevMember() {
+            currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
+            updateTeamMember(currentTeamIndex);
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(teamInterval);
+            teamInterval = setInterval(nextMember, 10000); 
+        }
+
+        btnNext.addEventListener('click', nextMember);
+        btnPrev.addEventListener('click', prevMember);
+
+        avatars.forEach(avatar => {
+            avatar.addEventListener('click', () => {
+                currentTeamIndex = parseInt(avatar.getAttribute('data-index'));
+                updateTeamMember(currentTeamIndex);
+                resetInterval();
+            });
+        });
+
+        progressBar.style.animation = 'progress-anim 10s linear forwards';
+        resetInterval();
+    }
 });

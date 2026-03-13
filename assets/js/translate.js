@@ -23,8 +23,10 @@ const translations = {
         // Equipo
         team_title: "Conoce al Equipo",
         team_subtitle: "¡Descubre a las personas que hacen posible NiteCraft!",
-        team_role: "CONFIGURADOR Y MODELADOR",
-        team_desc: "¡Hola! Soy Lexsor00. Me encargo tanto de configurar los sistemas internos del servidor como de diseñar y dar vida a los modelos 3D que verás en el juego. Trabajo día y noche para que cada bloque, ítem y mecánica de NiteCraft sea una experiencia única.",
+        team_role_lexsor: "CONFIGURADOR Y MODELADOR",
+        team_desc_lexsor: "¡Hola! Soy Lexsor00. Me encargo tanto de configurar los sistemas internos del servidor como de diseñar y dar vida a los modelos 3D que verás en el juego. Trabajo día y noche para que cada bloque, ítem y mecánica de NiteCraft sea una experiencia única.",
+        team_role_arnau: "MANAGER",
+        team_desc_arnau: "¡Buenas! Soy Arnauetcacawet. Coordino al equipo de Staff y gestiono el día a día del servidor. Mi objetivo es que la comunidad tenga la mejor experiencia posible y que todo funcione como un reloj suizo.",
 
         // Social
         social_title: "¡Seamos Sociales!",
@@ -78,9 +80,11 @@ const translations = {
         // Equipo
         team_title: "Meet The Team",
         team_subtitle: "Learn about the people who make NiteCraft amazing!",
-        team_role: "DEVELOPER & 3D MODELER",
-        team_desc: "Hey! I'm Lexsor00. I take care of both configuring the server's internal systems and designing the 3D models you'll see in-game. I work hard to make every block, item, and mechanic in NiteCraft a unique experience.",
-
+        team_role_lexsor: "CONFIGURATOR & 3D MODELER",
+        team_desc_lexsor: "Hey! I'm Lexsor00. I take care of both configuring the server's internal systems and designing the 3D models you'll see in-game. I work hard to make every block, item, and mechanic in NiteCraft a unique experience.",
+        team_role_arnau: "MANAGER",
+        team_desc_arnau: "Hi there! I'm Arnauetcacawet. I coordinate the Staff team and manage the day-to-day running of the server. My goal is to ensure the community has the best possible experience and everything runs smoothly.",
+        
         // Social
         social_title: "Let's Be Social!",
         social_desc: "Here on NiteCraft we think communication is the key to an amazing community. Because of that, we heavily value our Discord and the way it allows us to connect with our favourite people ever you! Come join us, and let's create our universe together!",
@@ -163,4 +167,5 @@ function applyTranslations() {
 document.addEventListener('DOMContentLoaded', () => {
     updateLanguageUI();
     applyTranslations();
+
 });

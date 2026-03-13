@@ -90,7 +90,9 @@
 
     <section class="team-section">
         <div class="team-container">
-            <div class="team-progress-bar"></div>
+            <div class="team-progress-bar">
+                <div class="progress-fill" id="team-progress"></div>
+            </div>
 
             <div class="team-content">
                 <div class="team-info">
@@ -98,25 +100,32 @@
                     <p class="team-subtitle" data-i18n="team_subtitle">¡Descubre a las personas que hacen posible NiteCraft!</p>
                     
                     <div class="member-header">
-                        <h3 class="member-name">Lexsor00</h3>
-                        <span class="role-badge" data-i18n="team_role">CONFIGURADOR Y MODELADOR</span>
+                        <h3 class="member-name color-red" id="member-name">Lexsor00</h3>
+                        <span class="role-badge color-red" id="member-role" data-i18n="team_role_lexsor">CONFIGURADOR Y MODELADOR</span>
                     </div>
                     
-                    <p class="member-desc" data-i18n="team_desc">
+                    <p class="member-desc" id="member-desc" data-i18n="team_desc_lexsor">
                         ¡Hola! Soy Lexsor00. Me encargo tanto de configurar los sistemas internos del servidor como de diseñar y dar vida a los modelos 3D que verás en el juego. Trabajo día y noche para que cada bloque, ítem y mecánica de NiteCraft sea una experiencia única.
                     </p>
 
                     <div class="team-carousel">
-                        <i class="fa-solid fa-angle-left carousel-arrow"></i>
-                        <div class="avatar-head active">
-                            <img src="https://mc-heads.net/avatar/Lexsor00/32" alt="Lexsor00">
+                        <i class="fa-solid fa-angle-left carousel-arrow" id="prev-member"></i>
+                        
+                        <div class="avatars-container">
+                            <div class="avatar-head active" data-index="0">
+                                <img src="https://mc-heads.net/avatar/Lexsor00/32" alt="Lexsor00">
+                            </div>
+                            <div class="avatar-head" data-index="1">
+                                <img src="https://mc-heads.net/avatar/Arnauetcacawet/32" alt="Arnauetcacawet">
+                            </div>
                         </div>
-                        <i class="fa-solid fa-angle-right carousel-arrow"></i>
+
+                        <i class="fa-solid fa-angle-right carousel-arrow" id="next-member"></i>
                     </div>
                 </div>
                 
                 <div class="team-image-container">
-                    <img src="assets/img/render-lexsor00.png" alt="Lexsor00 Render" class="member-render">
+                    <img src="assets/img/render-lexsor00.png" alt="Lexsor00 Render" class="member-render" id="member-render">
                 </div>
             </div>
         </div>
@@ -165,4 +174,5 @@
     <script src="assets/js/translate.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
